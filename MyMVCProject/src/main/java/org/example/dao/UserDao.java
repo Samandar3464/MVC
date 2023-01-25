@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 public class UserDao {
     private final SessionFactory sessionFactory;
 
+
     public UserDao(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }

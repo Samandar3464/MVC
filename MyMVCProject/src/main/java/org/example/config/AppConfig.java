@@ -19,7 +19,7 @@ public class AppConfig implements WebMvcConfigurer {
     @Bean
     UserDao userDao() {
         return new UserDao(sessionFactory());
-    }
+     }
     @Bean
     NewsDao newsDao(){
         return  new NewsDao(sessionFactory());
