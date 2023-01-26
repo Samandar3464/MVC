@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 
 @Repository
@@ -45,12 +46,20 @@ public class UserDao {
         session.beginTransaction();
         String queryString = "FROM User WHERE phoneNumber=:phoneNumber and password=:password";
         Query query = session.createQuery(queryString);
-        query.setParameter("phoneNumber",userLoginRequest.getPhoneNumber());
-        query.setParameter("password",userLoginRequest.getPassword());
-        User singleResult = (User) query.getSingleResult();
+        query.setParameter("phoneNumber", userLoginRequest.getPhoneNumber());
+        query.setParameter("password", userLoginRequest.getPassword());
+        List<User> resultList = query.getResultList();
+
         session.getTransaction().commit();
         session.close();
-        return singleResult;
+        try {
+            return resultList.get(0);
+        }
+        catch  (IndexOutOfBoundsException e){
+            return null;
+        }
+
+
     }
 
 }
