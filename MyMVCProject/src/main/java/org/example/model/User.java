@@ -11,6 +11,7 @@ import lombok.*;
 @Getter
 @Entity
 @Builder
+@ToString
 @Table(name = "users")
 public class User {
     @Id
