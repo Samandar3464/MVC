@@ -50,7 +50,7 @@ public class HomeController {
     ){
         User login = userService.login(userLoginRequest);
         if(login!=null){
-            return "index";
+            return "news/main";
         }
         else {
             return "register";

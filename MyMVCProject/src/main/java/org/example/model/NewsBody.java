@@ -2,6 +2,7 @@ package org.example.model;
 
 
 import jakarta.persistence.*;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,5 +21,8 @@ public class NewsBody {
 
     @Column(nullable = false)
     private String fullDescription;
+    public NewsBody(HttpServletRequest request) {
+        this.fullDescription = request.getParameter("full_info");
+    }
 
 }

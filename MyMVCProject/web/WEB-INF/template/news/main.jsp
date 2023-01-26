@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show News</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="col-md-10">
+  <table class="table ">
+    <thead>
+    <tr>
+      <th>name</th>
+      <th>title</th>
+      <th>type</th>
+      <th>body</th>
+      <th><a href="/news/addNews"  type="submit" class="btn btn-primary">Add Product</a>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="news: ${newsList}">
+      <td th:text="${news.name}"/>
+      <td th:text="${news.title}"/>
+      <td th:text="${news.type}"/>
+      <td th:text="${news.newsBody}"/>
+      <td>
+        <a href="@{/news/delete/{id}(id=${news.id})}" methods="get">delete</a>
+        <button th:attr="onclick=|updateId('${news.id}','${news.name}','${news.title}',
+                        '${news.newsBody}')|"
+                type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#myModal">update</button>
+      </td>
+      <div id="myModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Product Update</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form method="post" id="form-update" action="/news/update">
+                <div class="form-group">
+                  <label    class="control-label" >Name</label>
+                  <input type="text" name="name" id="name"  class="form-control" >
+                </div>
+                <div class="form-group">
+                  <label class="control-label">title</label>
+                  <input type="text" name="quantity" id="quantity" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="control-label" >type</label>
+                  <input type="text" name="price" id="price" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label  class="control-label" >newsBody </label>
+                  <input type="text" name="info" id="info" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+  function updateId(newsId,newsName,newsTitle,newBodyInfo){
+    document.getElementById("form-update").action +=newsId
+    document.getElementById("name").value=newsName;
+    document.getElementById("title").value=newsTitle;
+    document.getElementById("newsBody").value=newBodyInfo;
+  }
+  function getUser(id) {
+    console.log("RAVSHAN")
+    // fetch("/user/update/" + id).then((res) => {
+    //     console.log(res.data)
+    // })
+  }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

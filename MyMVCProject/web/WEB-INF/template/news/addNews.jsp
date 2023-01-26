@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html class="supernova">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>New Customer Registration Form</title>
+    <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?defaultThemeVersion=3027683
+&themeRevisionID=5eb3b4ae85bd2e1e2966db96"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+          id="bootstrap-css">
+    <style type="text/css" id="form-designer-style">
+
+        .form-label-top,
+        .form-checkbox-item label,
+        .form-radio-item label,
+        span.FITB .qb-checkbox-label,
+        span.FITB .qb-radiobox-label,
+        span.FITB .form-radio label,
+        span.FITB .form-checkbox label,
+        [data-blotid][data-type=checkbox] [data-labelid],
+        [data-blotid][data-type=radiobox] [data-labelid],
+        span.FITB-inptCont[data-type=checkbox] label,
+        span.FITB-inptCont[data-type=radiobox] label {
+            color: #2C3345;
+        }
+
+        .supernova {
+            background: radial-gradient(ellipse at right bottom, #EEB1BF 5%, #2557fc 25%, #4d1d63 50%, #2745be 100%);
+        }
+
+        .supernova body {
+            background: transparent;
+        }
+
+        /*PREFERENCES STYLE*//*__INSPECT_SEPERATOR__*/
+        .form-header-group.header-small {
+            padding: 20px 52px !important;
+            border-radius: 6px 6px 0 0;
+            border-top: 1px solid #425fb9;
+            margin: 0 -38px;
+            border-bottom: 0;
+        }
+
+        .form-header-group.header-small h3 {
+            text-transform: uppercase;
+            font-size: 26px;
+            font-weight: 400;
+            text-align: left;
+        }
+
+        .btn.btn-primary {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
+            border: none;
+            transition: 0.5s;
+            background-size: 200% auto;
+
+        }
+
+        /* Injected CSS Code */
+    </style>
+
+    <script src="https://cdn01.jotfor.ms/static/prototype.forms.js?3.3.38736" type="text/javascript"></script>
+    <script src="https://cdn02.jotfor.ms/static/jotform.forms.js?3.3.38736" type="text/javascript"></script>
+    <script src="https://cdn03.jotfor.ms/js/vendor/jquery-1.8.0.min.js?v=3.3.38736" type="text/javascript"></script>
+    <script defer src="https://cdn01.jotfor.ms/js/vendor/maskedinput.min.js?v=3.3.38736"
+            type="text/javascript"></script>
+    <script defer src="https://cdn02.jotfor.ms/js/vendor/jquery.maskedinput.min.js?v=3.3.38736"
+            type="text/javascript"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/punycode/1.4.1/punycode.js"></script>
+    <script type="text/javascript">
+        JotForm.newDefaultTheme = true;
+        JotForm.extendsNewTheme = false;
+        JotForm.singleProduct = false;
+        JotForm.newPaymentUIForNewCreatedForms = false;
+        JotForm.newPaymentUI = true;
+
+        JotForm.setConditions([{
+            "action": [{"field": "9", "visibility": "Show", "id": "action_0_1579704830003"}],
+            "id": "1579704830003",
+            "index": "0",
+            "link": "Any",
+            "priority": "0",
+            "terms": [{"field": "8", "operator": "equals", "value": "Other"}],
+            "type": "field"
+        }]);
+        JotForm.init(function () {
+            /*INIT-START*/
+            JotForm.setPhoneMaskingValidator('input_5_full', '(998) ###-####');
+            setTimeout(function () {
+                $('input_6').hint('ex: email@yahoo.com');
+            }, 20);
+            /*INIT-END*/
+        });
+    </script>
+</head>
+
+<body>
+<div role="main" class="form-all">
+    <style>
+        .form-all:before {
+            background: none;
+        }
+    </style>
+    <ul class="form-section page-section">
+        <li id="cid_1" class="form-input-wide" data-type="control_head">
+            <div class="form-header-group  header-small">
+                <div class="header-text httal htvam">
+                    <h3 id="header_1" class="form-header text-center" data-component="header">Add new News</h3>
+                </div>
+            </div>
+        </li>
+
+        <li class="form-line jf-required" data-type="control_fullname" id="id_3"><label
+                class="form-label form-label-top form-label-auto" id="label_3" for="first_3">Name </label>
+            <div id="cid_3" class="form-input-wide jf-required" data-layout="full">
+                <div data-wrapper-react="true">
+                        <span class="form-sub-label-container" style="vertical-align:top" data-input-type="first">
+                            <input type="text" id="first_3" name="name"
+                                   class="form-textbox validate[required]">
+                        </span>
+                </div>
+            </div>
+        </li>
+        <li class="form-line jf-required" data-type="control_fullname" id="id_5"><label
+                class="form-label form-label-top form-label-auto" id="label_5" for="first_3">Tittle </label>
+            <div id="cid_5" class="form-input-wide jf-required" data-layout="full">
+                <div data-wrapper-react="true">
+                        <span class="form-sub-label-container" style="vertical-align:top" data-input-type="first">
+                            <input type="text" id="first_4" name="tittle"
+                                   class="form-textbox validate[required]">
+                        </span>
+                </div>
+            </div>
+        </li>
+
+        <li class="form-line jf-required" data-type="control_address" id="id_4">
+            <label class="form-label form-label-top form-label-auto" id="label_4"
+                   for="input_4_addr_line1">Full info about news </label>
+            <div id="cid_4" class="form-input-wide jf-required" data-layout="full">
+                <div summary="" class="form-address-table jsTest-addressField">
+                    <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
+                        <span class="form-address-line form-address-street-line jsTest-address-lineField">
+                            <span class="form-sub-label-container" style="vertical-align:top">
+                                <input type="text" id="input_4_addr_line1"
+                                       name="full_info"
+                                       class="form-textbox validate[required] form-address-line"
+                                       data-defaultvalue="" autoComplete="section-input_4 address-line1"
+                                       value="" data-component="address_line_1"
+                                       aria-labelledby="label_4 sublabel_4_addr_line1" required=""/>
+
+                            </span>
+                        </span>
+                    </div>
+
+
+
+                    <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
+                        <label class="form-label form-label-top form-label-auto" id="label_10"
+                               for="input_4_addr_line1">Select new type</label>
+                        <div class="field d-flex align-items-center justify-between">
+                            <select id="pet-select">
+                                <option value="">Choose news type</option>
+                                <option value="WEATHER">WEATHER</option>
+                                <option value="UZB_NEWS">UZB_NEWS</option>
+                                <option value="EUR_NEWS">EUR_NEWS</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
+                        <label class="form-label form-label-top form-label-auto" id="label_9"
+                               for="input_4_addr_line1">Select photo</label>
+                        <div class="field d-flex align-items-center justify-between">
+                            <div class=" ml-5 avatar-wrapper">
+                                <img class="profile-pic" src=""/>
+                                <div class="upload-button">
+                                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                                </div>
+                                <input class="file-upload" name="url" type="file" accept="image/*"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="form-line" data-type="control_button" id="id_2">
+            <div id="cid_2" class="form-input-wide" data-layout="full">
+                <div class="col-12">
+                    <form action="/news/save" method="get">
+                        <button type="submit" class="text-center btn btn-primary btn-lg btn-block ">
+                            Add
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<script>$(document).ready(function () {
+    var readURL = function (input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(".profile-pic").attr("src", e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    };
+
+    $(".file-upload").on("change", function () {
+        readURL(this);
+    });
+
+    $(".upload-button").on("click", function () {
+        $(".file-upload").click();
+    });
+});
+</script>
+
+</body>
+</html>
