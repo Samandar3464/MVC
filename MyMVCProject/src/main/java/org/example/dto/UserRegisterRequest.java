@@ -2,6 +2,7 @@ package org.example.dto;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.Data;
+import org.example.utils.FileUtils;
 
 @Data
 public class UserRegisterRequest {
@@ -16,6 +17,6 @@ public class UserRegisterRequest {
         this.username = request.getParameter("username");;
         this.phoneNumber = request.getParameter("phoneNumber");;
         this.password = request.getParameter("password");;
-        this.photo_url = request.getParameter("photo_url");;
+        this.photo_url = request.getParameter(FileUtils.savePhoto(request));;
     }
 }
