@@ -57,9 +57,9 @@
           <element id="library" level="project" name="Maven: org.webjars:jquery:3.6.1" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="MyMVCProject/web/Web" />
+      <element id="javaee-facet-resources" facet="MyMVCProject/web/Web" />
       <element id="javaee-facet-resources" facet="MVC/web/Web" />
-      <element id="javaee-facet-resources" facet="MyMVCProject/web/Web" />
-      <element id="javaee-facet-resources" facet="MyMVCProject/web/Web" />
     </root>
   </artifact>
 </component>

@@ -70,7 +70,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.checkerframework:checker-qual:3.5.0" level="project" />
     <orderEntry type="library" name="Maven: jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: jakarta.el:jakarta.el-api:4.0.0" level="project" />
-    <orderEntry type="library" name="Maven: jakarta.servlet:jakarta.servlet-api:5.0.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: jakarta.servlet:jakarta.servlet-api:6.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:6.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:6.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:6.0.3" level="project" />
