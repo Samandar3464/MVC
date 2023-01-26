@@ -1,12 +1,11 @@
 package org.example.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.SessionFactory;
 
-import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,13 +29,7 @@ public class News {
     @JoinColumn(name = "newsBodyId")
     private NewsBody newsBody;
 
-    public News(String name, String title, String url, Enum type, NewsBody newsBody) {
-        this.name = name;
-        this.title = title;
-        this.url = url;
-        this.type = type;
-        this.newsBody = newsBody;
-    }
+
 
 
 }
