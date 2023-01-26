@@ -2,7 +2,9 @@ package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.dao.UserDao;
+import org.example.dto.UserLoginRequest;
 import org.example.dto.UserRegisterRequest;
+import org.example.model.User;
 import org.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,5 +42,18 @@ public class HomeController {
     ) {
         boolean isSuccess = userService.addUser(userRegisterRequest);
         return isSuccess ? "login" : "register";
+    }
+
+    @PostMapping("/auth/login")
+    public String login(
+            @ModelAttribute UserLoginRequest userLoginRequest
+    ){
+        User login = userService.login(userLoginRequest);
+        if(login!=null){
+            return "index";
+        }
+        else {
+            return "register";
+        }
     }
 }
