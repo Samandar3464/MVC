@@ -18,7 +18,9 @@
 
     </div>
     <div class="form-container">
+        <p class="text-red" th:text="${isSucces}"></p>
         <div class="form-inner">
+
             <form action="/auth/register" method="post" class="login">
                 <div class="field">
                     <input type="text" name="name" placeholder="Name" required>
@@ -39,7 +41,7 @@
                         <div class="upload-button">
                             <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                         </div>
-                        <input class="file-upload" name="photo_url" type="file" accept="image/*"/>
+                        <input class="file-upload" name="photo_url" type="file" />
                     </div>
                 </div>
 
@@ -47,7 +49,8 @@
                     <div class="btn-layer"></div>
                     <input type="submit" value="Register">
                 </div>
-                <a href="login" class="field btn">
+
+                <a href="/login" class="field btn">
                     <div class="btn-layer"></div>
                     <p  >Login</p>
                 </a>

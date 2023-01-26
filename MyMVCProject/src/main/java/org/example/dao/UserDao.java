@@ -31,8 +31,15 @@ public class UserDao {
                 .buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        Object save = session.save(user);
-        session.getTransaction().commit();
+        Object save = null;
+        try {
+             save = session.save(user);
+            session.getTransaction().commit();
+        }
+        catch (Exception e){
+            return false;
+        }
+
         session.close();
         if(save == null){
             return false;

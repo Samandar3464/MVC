@@ -36,39 +36,45 @@ public class HomeController {
     }
     @GetMapping("login")
     public String home(){
-        return "login.html";
+        return "login";
     }
 
     @GetMapping("")
     public String register(){
-        return "register.html";
+        return "register";
     }
 
     @PostMapping("/auth/register")
-    public String register(
-HttpServletRequest userRegisterRequest
-//             UserRegisterRequest userRegisterRequest
+    public ModelAndView register(
+//HttpServletRequest userRegisterRequest
+             UserRegisterRequest userRegisterRequest,
+             ModelAndView modelAndView
     ) {
-        boolean isSuccess = userService.addUser(new UserRegisterRequest(userRegisterRequest));
-        return isSuccess ? "login.html" : "register.html";
+        boolean isSuccess = userService.addUser(userRegisterRequest);
+        if(isSuccess){
+            modelAndView.setViewName("login");
+        }
+        else {
+            modelAndView.setViewName("register");
+            modelAndView.addObject("isSucces","This user alredy registreted!!");
+        }
+        return modelAndView;
     }
 
     @PostMapping("/auth/login")
     public ModelAndView login(
             @ModelAttribute UserLoginRequest userLoginRequest,
              HttpServletRequest httpServletRequest,
-            ModelAndView modelAndView,
-           ModelMap model
+            ModelAndView modelAndView
+
     ){
         User login = userService.login(userLoginRequest);
-        List<Integer> users = List.of(1,2,3,4);
-        model.put("inf",users);
 
         if(login!=null){
             HttpSession session = httpServletRequest.getSession();
             session.setAttribute("userId",login.getId());
-            modelAndView.setViewName("index.html");
-            modelAndView.addObject("isSucces", "Log in");
+            modelAndView.setViewName("index");
+            modelAndView.addObject("isSucces", login);
 
 
 
@@ -79,7 +85,7 @@ HttpServletRequest userRegisterRequest
 
         }
         else {
-            modelAndView.setViewName("register.html");
+            modelAndView.setViewName("register");
             modelAndView.addObject("isSucces", "Login falied password or username isnot correct");
 
         }
