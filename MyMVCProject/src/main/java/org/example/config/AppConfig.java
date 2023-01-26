@@ -1,28 +1,37 @@
 package org.example.config;
 
-import org.example.dao.NewsDao;
 import org.example.dao.UserDao;
-import org.example.model.News;
+import org.example.service.UserService;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-@org.springframework.context.annotation.Configuration
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
+
 @EnableWebMvc
+@ComponentScan(basePackages = "org.example")
+@Configuration
 public class AppConfig implements WebMvcConfigurer {
     @Bean
-    SessionFactory sessionFactory() {
-        return new Configuration().configure().buildSessionFactory();
+    public ViewResolver configureViewResolvers() {
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setSuffix(".jsp");
+        viewResolver.setPrefix("/WEB-INF/template/");
+        viewResolver.setViewClass(JstlView.class);
+        return viewResolver;
     }
 
-    @Bean
-    UserDao userDao() {
-        return new UserDao(sessionFactory());
-    }
-    @Bean
-    NewsDao newsDao(){
-        return  new NewsDao(sessionFactory());
-    }
 
+
+
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
 }
