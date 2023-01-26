@@ -19,6 +19,7 @@ public class UserService {
     }
 
     public boolean addUser(final UserRegisterRequest userRegisterRequest) {
+
         User user = User.builder()
                 .name(userRegisterRequest.getName())
                 .username(userRegisterRequest.getUsername())

@@ -8,8 +8,6 @@ package org.example.controller;
 
 
 
-import com.sun.net.httpserver.Request;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.example.dao.UserDao;
@@ -18,10 +16,8 @@ import org.example.dto.UserRegisterRequest;
 import org.example.model.User;
 import org.example.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -40,21 +36,21 @@ public class HomeController {
     }
     @GetMapping("login")
     public String home(){
-        return "login";
+        return "login.html";
     }
 
     @GetMapping("")
     public String register(){
-        return "register";
+        return "register.html";
     }
 
     @PostMapping("/auth/register")
     public String register(
-
-            @ModelAttribute UserRegisterRequest userRegisterRequest
+HttpServletRequest userRegisterRequest
+//             UserRegisterRequest userRegisterRequest
     ) {
-        boolean isSuccess = userService.addUser(userRegisterRequest);
-        return isSuccess ? "login" : "register";
+        boolean isSuccess = userService.addUser(new UserRegisterRequest(userRegisterRequest));
+        return isSuccess ? "login.html" : "register.html";
     }
 
     @PostMapping("/auth/login")
@@ -62,14 +58,16 @@ public class HomeController {
             @ModelAttribute UserLoginRequest userLoginRequest,
              HttpServletRequest httpServletRequest,
             ModelAndView modelAndView,
-            Request request
+           ModelMap model
     ){
         User login = userService.login(userLoginRequest);
-//        List<Integer> users = List.of(1,2,3,4);
+        List<Integer> users = List.of(1,2,3,4);
+        model.put("inf",users);
+
         if(login!=null){
             HttpSession session = httpServletRequest.getSession();
             session.setAttribute("userId",login.getId());
-            modelAndView.setViewName("index");
+            modelAndView.setViewName("index.html");
             modelAndView.addObject("isSucces", "Log in");
 
 
@@ -81,7 +79,7 @@ public class HomeController {
 
         }
         else {
-            modelAndView.setViewName("register");
+            modelAndView.setViewName("register.html");
             modelAndView.addObject("isSucces", "Login falied password or username isnot correct");
 
         }
