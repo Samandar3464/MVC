@@ -1,5 +1,6 @@
 package org.example.dto;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.Data;
 
 @Data
@@ -10,4 +11,11 @@ public class UserRegisterRequest {
     private String password;
     private String photo_url;
 
+    public UserRegisterRequest(HttpServletRequest request) {
+        this.name = request.getParameter("name");
+        this.username = request.getParameter("username");;
+        this.phoneNumber = request.getParameter("phoneNumber");;
+        this.password = request.getParameter("password");;
+        this.photo_url = request.getParameter("photo_url");;
+    }
 }

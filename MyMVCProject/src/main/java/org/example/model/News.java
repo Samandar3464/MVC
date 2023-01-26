@@ -19,13 +19,13 @@ public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String title;
     private String url;
-    private Enum type;
+    private String type;
 
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "newsBodyId")
@@ -35,6 +35,7 @@ public class News {
     public News(HttpServletRequest request) {
         this.name = request.getParameter("name");
         this.title = request.getParameter("tittle");
+        this.type =request.getParameter("type");
         this.url= FileUtils.savePhoto(request);
     }
 
