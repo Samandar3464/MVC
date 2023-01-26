@@ -54,6 +54,9 @@
           <element id="library" level="project" name="Maven: org.testng:testng:7.7.1" />
           <element id="library" level="project" name="Maven: com.beust:jcommander:1.82" />
           <element id="library" level="project" name="Maven: org.webjars:jquery:3.6.1" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.29.0-GA" />
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf-spring6:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: ognl:ognl:3.3.4" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="MyMVCProject/web/Web" />

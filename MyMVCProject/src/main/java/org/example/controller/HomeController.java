@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.example.dao.UserDao;
 import org.example.dto.UserLoginRequest;
@@ -38,9 +39,9 @@ public class HomeController {
     @PostMapping("/auth/register")
     public String register(
 
-            @ModelAttribute UserRegisterRequest userRegisterRequest
+          HttpServletRequest userRegisterRequest
     ) {
-        boolean isSuccess = userService.addUser(userRegisterRequest);
+        boolean isSuccess = userService.addUser(new UserRegisterRequest(userRegisterRequest));
         return isSuccess ? "login" : "register";
     }
 

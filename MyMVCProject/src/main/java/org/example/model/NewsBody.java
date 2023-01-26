@@ -19,7 +19,7 @@ public class NewsBody {
     @Column(name = "newsBodyId")
     private int id;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String fullDescription;
     public NewsBody(HttpServletRequest request) {
         this.fullDescription = request.getParameter("full_info");

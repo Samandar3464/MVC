@@ -112,9 +112,13 @@
                 <div class="header-text httal htvam">
                     <h3 id="header_1" class="form-header text-center" data-component="header">Add new News</h3>
                 </div>
+                <div class="header-text httal htvam">
+                    <a href="/news/show">Show news</a>
+
+                </div>
             </div>
         </li>
-
+        <form action="/news/save" method="get">
         <li class="form-line jf-required" data-type="control_fullname" id="id_3"><label
                 class="form-label form-label-top form-label-auto" id="label_3" for="first_3">Name </label>
             <div id="cid_3" class="form-input-wide jf-required" data-layout="full">
@@ -163,11 +167,11 @@
                         <label class="form-label form-label-top form-label-auto" id="label_10"
                                for="input_4_addr_line1">Select new type</label>
                         <div class="field d-flex align-items-center justify-between">
-                            <select id="pet-select">
+                            <select  name="type" id="pet-select">
                                 <option value="">Choose news type</option>
-                                <option value="WEATHER">WEATHER</option>
-                                <option value="UZB_NEWS">UZB_NEWS</option>
-                                <option value="EUR_NEWS">EUR_NEWS</option>
+                                <option  value="WEATHER">WEATHER</option>
+                                <option  value="UZB_NEWS">UZB_NEWS</option>
+                                <option   value="EUR_NEWS">EUR_NEWS</option>
                             </select>
                         </div>
                     </div>
@@ -178,11 +182,7 @@
                                for="input_4_addr_line1">Select photo</label>
                         <div class="field d-flex align-items-center justify-between">
                             <div class=" ml-5 avatar-wrapper">
-                                <img class="profile-pic" src=""/>
-                                <div class="upload-button">
-                                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-                                </div>
-                                <input class="file-upload" name="url" type="file" accept="image/*"/>
+                                <input class="file-upload" name="photo_url" type="file" accept="image/*"/>
                             </div>
                         </div>
                     </div>
@@ -201,31 +201,6 @@
                 </div>
             </div>
         </li>
-    </ul>
-</div>
-
-<script>$(document).ready(function () {
-    var readURL = function (input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $(".profile-pic").attr("src", e.target.result);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    };
-
-    $(".file-upload").on("change", function () {
-        readURL(this);
-    });
-
-    $(".upload-button").on("click", function () {
-        $(".file-upload").click();
-    });
-});
-</script>
-
+        </form>
 </body>
 </html>
