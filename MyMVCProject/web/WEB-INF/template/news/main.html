@@ -20,14 +20,18 @@
     </tr>
     </thead>
     <tbody>
-
+<!--    <img th:src="@{'~/' + ${product.productUrl}}" > resm chiqarish uchun -->
     <tr th:each="news: ${newsList}">
       <td th:text="${news.name}"/>
       <td th:text="${news.title}"/>
       <td th:text="${news.type}"/>
       <td th:text="${news.newsBody}"/>
       <td>
-        <a href="@{/news/delete/{id}(id=${news.id})}" methods="get">delete</a>
+        <form action="/news/delete"  method="get">
+          <button type="submit" name="id" th:value="${news.id}" class="btn btn-primary">
+            Delete
+          </button>
+        </form>
         <button th:attr="onclick=|updateId('${news.id}','${news.name}','${news.title}',
                         '${news.newsBody}')|"
                 type="button" class="btn btn-primary" data-toggle="modal"
@@ -43,7 +47,9 @@
               </button>
             </div>
             <div class="modal-body">
-              <form method="post" id="form-update" action="/news/update">
+
+              <form action="/news/update" method="get"  >
+
                 <div class="form-group">
                   <label    class="control-label" >Name</label>
                   <input type="text" name="name" id="name"  class="form-control" >
@@ -60,7 +66,8 @@
                   <label  class="control-label" >newsBody </label>
                   <input type="text" name="info" id="info" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
+<!--                <button type="submit"  name="id" th:value="${news.id}" class="btn btn-success">Submit</button>-->
+                <button type="submit" name="id" th:value="${news.id}" class="btn btn-primary">Submit</button>
               </form>
             </div>
           </div>

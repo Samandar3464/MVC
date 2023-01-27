@@ -2,10 +2,7 @@ package org.example.model;
 
 import jakarta.persistence.*;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.example.utils.FileUtils;
 
 
@@ -13,6 +10,7 @@ import org.example.utils.FileUtils;
 @NoArgsConstructor
 @Setter
 @Getter
+@ToString
 @Entity
 @Table(name = "news")
 public class News {
@@ -39,4 +37,9 @@ public class News {
         this.url= FileUtils.savePhoto(request);
     }
 
+    public News(String name, String title, String type) {
+        this.name = name;
+        this.title = title;
+        this.type = type;
+    }
 }

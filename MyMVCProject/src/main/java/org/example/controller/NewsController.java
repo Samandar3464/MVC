@@ -6,8 +6,6 @@ import org.example.model.News;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -16,35 +14,53 @@ import java.util.List;
 @RequestMapping(value = "/news")
 public class NewsController {
     private final NewsDao newsDao;
+
     public NewsController(NewsDao newsDao) {
-        this.newsDao=newsDao;
+        this.newsDao = newsDao;
     }
 
-    @GetMapping(value = "/add" )
+    @GetMapping("/add")
     public String addNews() {
         return "news/addNews";
     }
-
     @GetMapping("/save")
     public String saveNews(HttpServletRequest request) {
         newsDao.addNews(request);
-        return "news/main";
+        return "redirect:show";
+    }
+    @GetMapping("")
+    public String home(Model model){
+        List<News> list = newsDao.getList();
+        model.addAttribute("news",list);
+        return "news/blog";
+    }
+
+    @GetMapping("info")
+    public String info(Model model){
+        List<News> list = newsDao.getList();
+        model.addAttribute("news",list);
+        return "redirect:show";
     }
     @GetMapping("/show")
     public String showListNews(Model model) {
-        List<News> newsList =newsDao.getList();
-        model.addAttribute("news" ,newsList);
+        List<News> newsList = newsDao.getList();
+        model.addAttribute("newsList", newsList);
         return "news/main";
     }
-    @PostMapping("/update")
+
+    @GetMapping("/update")
     public String updateNews(HttpServletRequest request) {
-        newsDao.addNews(request);
-        return "main";
+       newsDao.update(request);
+        return "redirect:show";
     }
-    @GetMapping("/delete{id}")
-    public String deleteNews(@PathVariable("id") int id) {
-        id=2;
-        newsDao.delete(id);
-        return "main";
+
+    @GetMapping(value = "/delete{id}")
+    public String deleteNews(HttpServletRequest request) {
+        String id = request.getParameter("id");
+        if (id != null) {
+            int id1 = Integer.parseInt(id);
+            newsDao.delete(id1);
+        }
+        return "redirect:show";
     }
 }
