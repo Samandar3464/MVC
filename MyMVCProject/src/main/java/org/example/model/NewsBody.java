@@ -3,15 +3,13 @@ package org.example.model;
 
 import jakarta.persistence.*;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
+@ToString
 @Entity
 public class NewsBody {
     @Id

@@ -55,7 +55,9 @@ public class NewsDao {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         News news =session.get(News.class ,id);
+        NewsBody newsBody = news.getNewsBody();
         if (news!=null){
+            session.delete(newsBody);
             session.delete(news);
             session.getTransaction().commit();
             session.close();
@@ -64,5 +66,20 @@ public class NewsDao {
         session.getTransaction().commit();
         session.close();
         return false;
+    }
+
+    public boolean update(HttpServletRequest request){
+//        String id = request.getParameter("id");
+//        if (id != null) {
+//            int id1 = Integer.parseInt(id);
+//            Session session = sessionFactory.openSession();
+//            session.beginTransaction();
+//            News news = session.get(News.class, id);
+//            NewsBody newsBody = news.getNewsBody();
+//News news1 = new NewsMapper(request);
+//        }
+
+
+        return true;
     }
 }
